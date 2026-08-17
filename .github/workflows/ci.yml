@@ -1,10 +1,14 @@
+---
 name: CI
 
-on:
+"on":
   pull_request:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
 
 jobs:
   quality-and-build:
@@ -13,10 +17,12 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: 26
           cache: npm
@@ -29,6 +35,9 @@ jobs:
 
       - name: Typecheck
         run: npm run typecheck
+
+      - name: Check formatting
+        run: npm run format:check
 
       - name: Test
         run: npm test
@@ -51,7 +60,8 @@ jobs:
     steps:
       - name: Create or update release PR
         id: release
-        uses: googleapis/release-please-action@v5
+        uses: >-
+          googleapis/release-please-action@0dfd8538845b8e92600d271a895a5372865d4062
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
@@ -66,13 +76,14 @@ jobs:
 
     steps:
       - name: Check out release commit
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           # release commit 即本次 push 的 SHA，与 tag 内容一致且必然存在
           ref: ${{ github.sha }}
+          persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: 26
           cache: npm

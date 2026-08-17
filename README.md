@@ -1,12 +1,12 @@
 # Bangumi Score
 
-A userscript for Bangumi. It is built with Vite and [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey).
+A userscript that runs only on [Bangumi Calendar](https://bangumi.tv/calendar). It is built with Vite and [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey).
 
 ## Usage
 
 1. Install a userscript manager such as [Tampermonkey](https://www.tampermonkey.net/).
 2. Download the latest `bangumi-score.user.js` asset from the project's GitHub Releases page and install it in the manager.
-3. Open [Bangumi](https://bgm.tv/).
+3. Open [Bangumi Calendar](https://bangumi.tv/calendar).
 
 ## Development
 

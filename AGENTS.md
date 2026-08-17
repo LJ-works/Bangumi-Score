@@ -1,10 +1,10 @@
 # AGENTS.md
 
-Bangumi userscript written in TypeScript and bundled into a single `.user.js` file with Vite and vite-plugin-monkey.
+Bangumi Calendar userscript written in TypeScript and bundled into a single `.user.js` file with Vite and vite-plugin-monkey.
 
 - The build output is a userscript, not a regular website or library. Configure userscript metadata such as `@match` and `@grant` in `vite.config.ts`.
 - Imported npm packages are bundled into the final `.user.js` file.
-- The script runs against the live Bangumi page. Verify DOM interactions manually in a browser.
+- The script runs only on the live [Bangumi Calendar](https://bangumi.tv/calendar) page. Verify DOM interactions manually in a browser.
 
 ## Testing
 

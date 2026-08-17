@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Install the development userscript from the browser prompt. Verify DOM changes manually on Bangumi.
+Install the development userscript from the browser prompt. Verify DOM changes manually on [Bangumi Calendar](https://bangumi.tv/calendar).
 
 ## Building and Checks
 
